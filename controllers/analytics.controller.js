@@ -2,10 +2,9 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import dotenv from "dotenv";
 dotenv.config();
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS =
-  "/etc/secrets/google-service-account.json";
-
-const analyticsDataClient = new BetaAnalyticsDataClient();
+const analyticsDataClient = new BetaAnalyticsDataClient({
+  keyFilename: "/etc/secrets/google-service-account.json",
+});
 
 export const getAnalyticsViews = async (req, res) => {
   try {
