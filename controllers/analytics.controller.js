@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const analyticsDataClient = new BetaAnalyticsDataClient({
-  keyFilename: "/etc/secrets/google-service-account.json",
+  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
 });
 
 export const getAnalyticsViews = async (req, res) => {
