@@ -14,13 +14,19 @@ export const sustainabilityController = {
     }
   },
   post: async (req, res) => {
-    const { entitle, mntitle, endescription, mndescription, image_url } =
-      req.body;
+    const {
+      entitle,
+      mntitle,
+      endescription,
+      mndescription,
+      image_url1,
+      image_url2,
+    } = req.body;
     const date = new Date();
 
     try {
       const response =
-        await sql`INSERT INTO sustainability(entitle,mntitle,endescription,mndescription,image_url,date) VALUES (${entitle},${mntitle},${endescription},${mndescription},${image_url}, ${date}) returning *`;
+        await sql`INSERT INTO sustainability(entitle,mntitle,endescription,mndescription,image_url1,image_url2,date) VALUES (${entitle},${mntitle},${endescription},${mndescription},${image_url1},${image_url2}, ${date}) returning *`;
       return res.status(200).json({ success: true, data: response });
     } catch (error) {
       console.error("Error fetching websites:", error);
@@ -29,13 +35,19 @@ export const sustainabilityController = {
   },
   update: async (req, res) => {
     const id = req.params.id;
-    const { entitle, mntitle, endescription, mndescription, image_url } =
-      req.body;
+    const {
+      entitle,
+      mntitle,
+      endescription,
+      mndescription,
+      image_url1,
+      image_url2,
+    } = req.body;
     const date = new Date();
 
     try {
       const response =
-        await sql`UPDATE sustainability SET entitle = ${entitle},mntitle= ${mntitle},endescription=${endescription},mndescription=${mndescription},image_url=${image_url} ,date=${date} WHERE id = ${id} RETURNING *`;
+        await sql`UPDATE sustainability SET entitle = ${entitle},mntitle= ${mntitle},endescription=${endescription},mndescription=${mndescription},image_url1=${image_url1},image_url2=${image_url2} ,date=${date} WHERE id = ${id} RETURNING *`;
       return res.status(200).json({ success: true, data: response });
     } catch (error) {
       console.error("Error fetching websites:", error);
