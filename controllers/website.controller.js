@@ -3,14 +3,13 @@ import { sql } from "../server.js";
 export const websiteController = {
   getAllWebsites: async (_, res) => {
     try {
-      const response = await sql`SELECT * FROM website ORDER BY ID asc`;
-      const statistics = await sql`SELECT * FROM statistics`;
-      const faq = await sql`SELECT * FROM FAQ`;
       const hero = await sql`SELECT * FROM website_headers WHERE id = 1`;
+      const response = await sql`SELECT * FROM website ORDER BY ID asc`;
+      const faq = await sql`SELECT * FROM FAQ`;
 
       res.status(200).json({
         success: true,
-        data: { hero, response, statistics, faq },
+        data: { hero, response, faq },
       });
     } catch (error) {
       console.error("Error fetching websites:", error);
