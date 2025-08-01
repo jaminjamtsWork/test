@@ -25,7 +25,6 @@ export const companyController = {
   updateCompany: async (req, res) => {
     const id = req.params.id;
     const { title, english, mongolia } = req.body;
-    console.log("aaa", id, req.body);
 
     try {
       const response = await sql`UPDATE company

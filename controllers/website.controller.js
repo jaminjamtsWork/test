@@ -5,11 +5,10 @@ export const websiteController = {
     try {
       const hero = await sql`SELECT * FROM website_headers WHERE id = 1`;
       const response = await sql`SELECT * FROM website ORDER BY ID asc`;
-      const faq = await sql`SELECT * FROM FAQ`;
 
       res.status(200).json({
         success: true,
-        data: { hero, response, faq },
+        data: { hero, response },
       });
     } catch (error) {
       console.error("Error fetching websites:", error);

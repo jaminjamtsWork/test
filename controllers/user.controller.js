@@ -115,7 +115,6 @@ export const userController = {
 
   deleteUser: async (req, res) => {
     const { id } = req.params;
-    console.log(id);
 
     try {
       const deletedUser = await sql`DELETE FROM users WHERE id = ${id}`;

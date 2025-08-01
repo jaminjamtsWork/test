@@ -3,6 +3,7 @@ import { faqController } from "../controllers/faq.controller.js";
 
 const faqRouter = express.Router();
 
+faqRouter.get("/faqHeader", faqController.getHeader);
 faqRouter.get("/faq", faqController.get);
 faqRouter.post("/faq", faqController.postFaq);
 faqRouter.put("/faq/:id", faqController.updateFaq);
