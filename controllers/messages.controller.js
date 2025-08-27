@@ -37,18 +37,18 @@ export const messageController = {
   },
 
   createMessage: async (req, res) => {
-    const { purpose, firstname, email, plan } = req.body;
+    const { phonenumber, firstname, email, plan } = req.body;
 
-    sendCollabrationEmail(purpose, email, firstname, plan);
+    sendCollabrationEmail(phonenumber, email, firstname, plan);
 
     const date = new Date();
 
     try {
       const response = await sql`INSERT INTO messages(
-        purpose,
+      phonenumber,
       firstname,
       email,
-      plan, date) VALUES (${purpose},${firstname},${email},${plan},${date}) RETURNING *`;
+      plan, date) VALUES (${phonenumber},${firstname},${email},${plan},${date}) RETURNING *`;
       res.status(201).json(response);
     } catch (error) {
       console.error("Error creating messages:", error);

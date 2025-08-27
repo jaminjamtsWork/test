@@ -32,7 +32,7 @@ async function sendEmail(to, otp) {
 
   return transporter.sendMail(mailOptions);
 }
-async function sendCollabrationEmail(purpose, email, firstname, plan) {
+async function sendCollabrationEmail(phonenumber, email, firstname, plan) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -44,7 +44,7 @@ async function sendCollabrationEmail(purpose, email, firstname, plan) {
   const mailOptions = {
     from: "jaminjamts12@gmail.com",
     to: "ceo@gobiaigar.com",
-    subject: `Говь Айгар вебсайтад ${purpose} санал хүрч ирлээ`,
+    subject: `Говь Айгар вебсайтад ${phonenumber} дугаартай хэрэглэгчээс санал хүрч ирлээ`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9;">
         <h2 style="color: #333; text-align: center;">Санал ирлээ</h2>
